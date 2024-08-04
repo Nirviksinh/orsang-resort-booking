@@ -1,0 +1,19 @@
+.about_thumb .img_1 img,
+.about_thumb .img_2 img {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Adjust as needed */
+    max-height: 500px; /* Adjust as needed */
+}
+
+.about_thumb {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img_1, .img_2 {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
