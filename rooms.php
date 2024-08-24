@@ -1,205 +1,123 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-
-<?php include "head.php"; ?>
-
+<head>
+    <!-- Include necessary head content here -->
+    <?php include "head.php"; ?>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .bradcam_area {
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .card-body {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .see-more {
+            cursor: pointer;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .see-more:hover {
+            color: #0056b3;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .bradcam_area h3 {
+            font-size: 2rem;
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-    <!-- header-start -->
     <?php include "header.php"; ?>
-    <?php include "menu.php"; ?>
-
-    <!-- bradcam_area_start -->
-    <div class="bradcam_area breadcam_bg_1">
-        <h3>Laxaries Rooms</h3>
-    </div>
-    <!-- bradcam_area_end -->
-
-    <!-- offers_area_start -->
-    <div class="offers_area padding_top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
-                        <span>Our Offers</span>
-                        <h3>Ongoing Offers</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_offers">
-                        <div class="about_thumb">
-                            <img src="img/offers/room1.jpg" alt="">
-                        </div>
-                        <h3>Up to 35% savings on Club <br> 
-                                rooms and Suites</h3>
-                        <ul>
-                            <li>Luxaries condition</li>
-                            <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
-                        </ul>
-                        <a href="#" class="book_now">book now</a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_offers">
-                        <div class="about_thumb">
-                            <img src="img/offers/room2.jpg" alt="">
-                        </div>
-                        <h3>Up to 35% savings on Club <br> 
-                                rooms and Suites</h3>
-                        <ul>
-                            <li>Luxaries condition</li>
-                            <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
-                        </ul>
-                        <a href="#" class="book_now">book now</a>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="single_offers">
-                        <div class="about_thumb">
-                            <img src="img/offers/room3.jpg" alt="">
-                        </div>
-                        <h3>Up to 35% savings on Club <br> 
-                                rooms and Suites</h3>
-                        <ul>
-                            <li>Luxaries condition</li>
-                            <li>3 Adults & 2 Children size</li>
-                            <li>Sea view side</li>
-                        </ul>
-                        <a href="#" class="book_now">book now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- offers_area_end -->
-
-    <!-- features_room_startt -->
-    <div class="features_room">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="section_title text-center mb-100">
-                        <span>Featured Rooms</span>
-                        <h3>Choose a Better Room</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="rooms_here">
-            <div class="single_rooms">
-                <div class="room_thumb">
-                    <img src="img/rooms/11.png" alt="">
-                    <div class="room_heading d-flex justify-content-between align-items-center">
-                        <div class="room_heading_inner">
-                            <span>From $250/night</span>
-                            <h3>Superior Room</h3>
-                        </div>
-                        <a href="#" class="line-button">book now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="single_rooms">
-                <div class="room_thumb">
-                    <img src="img/rooms/33.png" alt="">
-                    <div class="room_heading d-flex justify-content-between align-items-center">
-                        <div class="room_heading_inner">
-                            <span>From $250/night</span>
-                            <h3>Deluxe Room</h3>
-                        </div>
-                        <a href="#" class="line-button">book now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="single_rooms">
-                <div class="room_thumb">
-                    <img src="img/rooms/44.png" alt="">
-                    <div class="room_heading d-flex justify-content-between align-items-center">
-                        <div class="room_heading_inner">
-                            <span>From $250/night</span>
-                            <h3>Signature Room</h3>
-                        </div>
-                        <a href="#" class="line-button">book now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="single_rooms">
-                <div class="room_thumb">
-                    <img src="img/rooms/room4.jpg" alt="">
-                    <div class="room_heading d-flex justify-content-between align-items-center">
-                        <div class="room_heading_inner">
-                            <span>From $250/night</span>
-                            <h3>Couple Room</h3>
-                        </div>
-                        <a href="#" class="line-button">book now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- features_room_end -->
-
     
 
-    
+    <div class="bradcam_area breadcam_bg_2">
+        <h3>ALL ROOMS</h3>
+    </div>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="row">
+                    <?php
+                    $q = "SELECT * FROM rooms";
+                    $rs = mysqli_query($con, $q);
+                    while ($row = mysqli_fetch_array($rs)) {
+                    ?>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="<?php echo $row['image']; ?>" class="card-img-top" alt="Room image" style="height: 200px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row['r_type']; ?></h5>
+                                <p class="card-text" id="description-<?php echo $row['r_id']; ?>">
+                                    <strong>Monthly Rate:</strong> <?php echo $row['r_rate']; ?><br>
+                                    <strong>Capacity:</strong> <?php echo $row['capacity']; ?><br>
+                                    <?php echo $row['description']; ?>
+                                </p>
+                                <span class="see-more" data-target="description-<?php echo $row['r_id']; ?>">See More</span><br>
+                                <a href="booking_room.php?r_id=<?php echo $row['r_id']; ?>" class="btn btn-primary">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php include "footer.php"; ?>
-    <form id="test-form" class="white-popup-block mfp-hide">
-        <div class="popup_box ">
-                <div class="popup_inner">
-                    <h3>Check Availability</h3>
-                    <form action="#">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <input id="datepicker" placeholder="Check in date">
-                            </div>
-                            <div class="col-xl-6">
-                                <input id="datepicker2" placeholder="Check out date">
-                            </div>
-                            <div class="col-xl-6">
-                                <select class="form-select wide" id="default-select" class="">
-                                    <option data-display="Adult">1</option>
-                                    <option value="1">2</option>
-                                    <option value="2">3</option>
-                                    <option value="3">4</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-6">
-                                <select class="form-select wide" id="default-select" class="">
-                                    <option data-display="Children">1</option>
-                                    <option value="1">2</option>
-                                    <option value="2">3</option>
-                                    <option value="3">4</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-12">
-                                <select class="form-select wide" id="default-select" class="">
-                                    <option data-display="Room type">Room type</option>
-                                    <option value="1">Laxaries Rooms</option>
-                                    <option value="2">Deluxe Room</option>
-                                    <option value="3">Signature Room</option>
-                                    <option value="4">Couple Room</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-12">
-                                <button type="submit" class="boxed-btn3">Check Availability</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-    </form>
-<!-- form itself end -->
-
-
-<?php include "script.php"; ?>
-
-
+    <script>
+        document.querySelectorAll('.see-more').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const target = document.getElementById(targetId);
+                if (target.style.display === 'block') {
+                    target.style.display = '-webkit-box';
+                    this.textContent = 'See More';
+                } else {
+                    target.style.display = 'block';
+                    this.textContent = 'See Less';
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>

@@ -1,15 +1,65 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
+<head>
+    <!-- Existing includes -->
+    <?php include "head.php";?>
+    <style>
+        .about_info .section_title span {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #f06595, #cc65fe, #845ef7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .about_info .section_title h3 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about_info p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about_info .line-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: back-ground 0.3s ease;
+        }
+
+        .about_info .line-button:hover {
+            background: #f06595;
+        }
+
+        .about_info {
+            padding: 40px;
+            background: skyblue;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
 <body>
     <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-    <?php include "head.php";?>
-    <?php include "admin-header.php";?> 
-    <?php include "admin-menu.php";?> 
-    
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <?php include "admin-header.php";?>
+   
+
     <!-- header-start -->
-    
 
     <!-- slider_area_start -->
     <div class="slider_area">
@@ -19,8 +69,8 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="slider_text text-center">
-                                <h3>Admin Home</h3>
-                                <p>Unlock to enjoy the view of Martine</p>
+                                <h3>Admin-Home</h3>
+                                <p>Welcome To Admin Home</p>
                             </div>
                         </div>
                     </div>
@@ -64,54 +114,37 @@
             </div>
         </div>
     </div>
-    <!-- slider_area_end -->
-
     <!-- about_area_start -->
     <div class="about_area">
         <div class="container">
             <div class="row">
-                <div class="col-xl-7 col-lg-7">
+                <div class="col-xl-5 col-lg-7">
                     <div class="about_info">
                         <div class="section_title mb-20px">
                             <span>About Us</span>
-                            <h3>A Luxuries Hotel <br>
-                                with Nature</h3>
+                            
                         </div>
-                        <p>Orsang Camp has 2 Machhan (tree house), 8 AC deluxe rooma. The River Orsang is hardly what one would call tame. The Orsang Adventure and Nature Camp is a paean to this majestic river. A wonderful mix of delightful nature and Eco Friendly adventure, this camp is close enough for easy access and far enough to cut yourself off from the everyday humdrum. Whether it's action-packed adventure or just a chance to get closer to nature.</p>
-                        <a href="https://r.search.yahoo.com/_ylt=AwrPo_Eh4Z1mU7449kfnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1721651617/RO=10/RU=https%3a%2f%2forsangcamp.com%2f/RK=2/RS=2Pc7G7bpDbHVyqnN.4hq6cE3tVg-" class="line-button">Learn More</a>
+                        <p>Orsang Camp elucidates the true meaning of adventure and adrenaline rush by galvanizing its guests into taking a step up into the fear-free zone. Located in the enthralling village of Gamdi, on the magnificent bank of Orsang River, the Camp shelters a sprawling area of lush green 125 acres and is designed to offer a great blend of comfort, style and adventure seen never before.</p>
+                        <a href="https://r.search.yahoo.com/_ylt=Awrx.PPGCLVmPpooq2jnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1723169095/RO=10/RU=https%3a%2f%2forsangcamp.com%2f/RK=2/RS=M2kxa3Ev085H4jVNi.HOk54D7ik-" class="line-button">Learn More</a>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7">
                     <div class="about_thumb d-flex">
-                         <div class="img_1">
-                            <img src="img/about/orsangview.jpg" alt="" style="width: 300px; height: 200px; object-fit: cover;">
+                        <div class="">
+                            <img src="img/about/aboutsection.png" >
+                            
                         </div>
-                         <div class="img_2">
-                            <img src="img/about/orsanghotel.avif" alt="" style="width: 300px; height: 200px; object-fit: cover;">
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
     <!-- about_area_end -->
 
     
 
-    <!-- video_area_start -->
-    <div class="video_area video_bg overlay">
-        <div class="video_area_inner text-center">
-            <span>Orsang Sea View</span>
-            <h3>Relax and Enjoy your <br>
-                Vacation </h3>
-            <a href="https://www.youtube.com/watch?v=DjhJ3LhVc2g&pp=ygUNb3JzYW5nIHJlc29ydA%3D%3D" class="video_btn popup-video">
-            
-                <i class="fa fa-play"></i>
-            </a>
-        </div>
-    </div>
-    <!-- video_area_end -->
-
+    
+    
     <!-- footer -->
     <?php include "footer.php"; ?>
     <?php include "script.php"; ?>

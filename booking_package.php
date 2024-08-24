@@ -4,14 +4,18 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "resort_booking";
+
 // Create connection
 $con = new mysqli($servername, $username, $password, $dbname);
+
 // Check connection
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 }
+
 // Check if user_id is set in the session
 $user_id = isset($_SESSION['user']) ? (int)$_SESSION['user']['u_id'] : 0;
+
 if ($user_id === 0) {
     // Redirect to login page if user is not logged in
     header("Location: login.php");
@@ -29,12 +33,14 @@ if ($user_id === 0) {
     <div class="container mt-3">
         <a href="index.php" class="btn btn-success">Back to Home</a>
     </div>
+    
     <div class="container mt-5">
         <?php
-        // Retrieve the room ID from the URL
-        $r_id = $_GET['r_id'];
-        // Query to get room details
-        $query = "SELECT * FROM rooms WHERE r_id='$r_id'";
+        // Retrieve the package ID from the URL
+        $p_id = $_GET['p_id'];
+        
+        // Query to get package details
+        $query = "SELECT * FROM packages WHERE p_id='$p_id'";
         $result = mysqli_query($con, $query);
         
         if ($row = mysqli_fetch_assoc($result)) {
@@ -42,18 +48,17 @@ if ($user_id === 0) {
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <img src="<?php echo $row['image']; ?>" class="card-img-top" alt="Room image" style="height: 300px; object-fit: cover;">
+                    <img src="<?php echo $row['image']; ?>" class="card-img-top" alt="Package image" style="height: 300px; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $row['r_type']; ?></h5>
+                        <h5 class="card-title"><?php echo $row['p_name']; ?></h5>
                         <p class="card-text">
-                            <strong>Monthly Rate:</strong> <?php echo $row['r_rate']; ?><br>
-                            <strong>Capacity:</strong> <?php echo $row['capacity']; ?><br>
+                            <strong>Monthly Price:</strong> <?php echo $row['price']; ?><br>
                             <?php echo $row['description']; ?>
                         </p>
                         
                         <!-- Booking form -->
-                        <form action="book_room_code.php" method="post" onsubmit="return validateDates()">
-                            <input type="hidden" name="b_id" value="<?php echo $row['r_id']; ?>">
+                        <form action="book_package_code.php" method="post" onsubmit="return validateDates()">
+                            <input type="hidden" name="b_id" value="<?php echo $row['p_id']; ?>">
                             <div class="form-group">
                                 <label for="checkin_date">Check-in Date:</label>
                                 <input type="date" class="form-control" name="checkin_date" id="checkin_date" required min="<?php echo date('Y-m-d'); ?>">
@@ -70,7 +75,7 @@ if ($user_id === 0) {
         </div>
         <?php
         } else {
-            echo "<div class='alert alert-danger' role='alert'>Room details not found.</div>";
+            echo "<div class='alert alert-danger' role='alert'>Package details not found.</div>";
         }
         ?>
     </div>

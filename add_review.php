@@ -1,15 +1,31 @@
+<?php
+session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "resort_booking";
+
+// Create connection
+$con = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
+
+// Check if user_id is set in the session
+$user_id = isset($_SESSION['user']) ? (int)$_SESSION['user']['u_id'] : 0;
+
+if ($user_id === 0) {
+    // Redirect to login page if user is not logged in
+    header("Location: login.php");
+    exit;
+}
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
 <?php include "head.php"; ?>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Review</title>
-    
-    <link rel="stylesheet" href="path-to-your-css/style.css">
-</head>
 
 <body>
     <!--[if lte IE 9]>
@@ -17,14 +33,10 @@
     <![endif]-->
 
     <!-- header-start -->
-    <?php include "header.php"; ?>
-    <?php include "menu.php"; ?>
-
-    <!-- bradcam_area_start -->
-    <div class="bradcam_area breadcam_bg_2">
-        <h3>Review</h3>
+    <div class="container mt-3">
+        <a href="index.php" class="btn btn-success">Back to Home</a>
     </div>
-    <!-- bradcam_area_end -->
+
 
     <!-- ================ contact section start ================= -->
     <section class="contact-section">
@@ -38,10 +50,6 @@
                 <div class="col-lg-8">
                     <form action="review_code.php" method="post">
                         <input type="hidden" name="r_id" value="<?php echo $row['r_id']; ?>">
-                        <div class="form-group">
-                            <label for="b_id">Booking Id</label>
-                            <input type="text" class="form-control" name="b_id" id="b_id" placeholder="Enter Booking Id" required>
-                        </div>
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Enter Your Name" required>
@@ -70,7 +78,10 @@
 
     <?php include "script.php"; ?>
 
-
+    <script>
+        // Set today's date as the minimum date for the date input
+        document.getElementById('r_date').min = new Date().toISOString().split('T')[0];
+    </script>
 
 </body>
 

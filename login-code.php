@@ -18,7 +18,7 @@ if( $rowAdmin = mysqli_fetch_array($rsAdmin)){
             header("Location:admin-home.php");
 }else if( $rowUser = mysqli_fetch_array($rsUser)){
         $_SESSION["user"] = $rowUser;
-        header("Location:user_logout.php");
+        header("Location:index.php");
 }else{
     echo "fail to login";
 }

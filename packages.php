@@ -1,136 +1,136 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
+<head>
+    <!-- Include necessary head content here -->
+    <?php include "head.php"; ?>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
 
-<?php include "head.php"; ?>
+        .bradcam_area {
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
 
+        .card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .card-body {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .see-more {
+            cursor: pointer;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .see-more:hover {
+            color: #0056b3;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .bradcam_area h3 {
+            font-size: 2rem;
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
 <body>
-    <!--[if lte IE 9]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
-
-    <!-- header-start -->
     <?php include "header.php"; ?>
-    <?php include "menu.php"; ?>
+    
 
-    <!-- bradcam_area_start -->
-    <div class="bradcam_area breadcam_bg">
-        <h3>Packagess</h3>
+    <div class="bradcam_area breadcam_bg_2">
+        <h3>ALL PACKAGES</h3>
     </div>
-    <!-- bradcam_area_end -->
 
-
-    <!--================Blog Area =================-->
-    <section class="blog_area section-padding">
-        <div class="container">
-            <div class="row">
-                <a class="d-inline-block" href="facilities.php">
-                    <h2>Swimming Pool at Orsang Resort</h2>
-                </a>
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="img/blog/single_blog_1.jpg" alt="">
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="row">
+                    <?php
+                    $q = "SELECT * FROM packages";
+                    $rs = mysqli_query($con, $q);
+                    while ($row = mysqli_fetch_array($rs)) {
+                    ?>
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="<?php echo $row['image']; ?>" class="card-img-top" alt="Package image" style="height: 200px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $row['p_name']; ?></h5>
+                                <p class="card-text" id="description-<?php echo $row['p_id']; ?>">
+                                    <strong>Monthly Price:</strong> <?php echo $row['price']; ?><br>
+                                    <?php echo $row['description']; ?>
+                                </p>
+                                <span class="see-more" data-target="description-<?php echo $row['p_id']; ?>">See More</span><br>
+                                <a href="booking_package.php?p_id=<?php echo $row['p_id']; ?>" class="btn btn-primary">Book Now</a>
                             </div>
-
-                            <div class="blog_details">
-                                
-                                <p>
-                                Orsang Resort, nestled in the picturesque landscape of Gujarat, India, is renowned for its blend of adventure and tranquility. Among its array of amenities, the resort's swimming pool stands out as a prime attraction. Designed to complement the natural beauty that surrounds it, the swimming pool at Orsang Resort offers guests a perfect oasis for relaxation and recreation.
-
-Surrounded by lush greenery and set against the backdrop of serene landscapes, the pool area is a haven of peace and rejuvenation. With its modern design, ample space, and inviting waters, the swimming pool caters to guests of all ages, providing a refreshing escape from the everyday hustle. Whether you're looking to take a leisurely dip, enjoy some poolside activities, or simply lounge and soak up the sun, the swimming pool at Orsang Resort promises a delightful experience in a beautiful setting.</p>
-                                
-                            </div>
-                        </article>
-                        <a class="d-inline-block" href="facilities.php">
-                                    <h2>Play Games at Orsang Resort</h2>
-                                </a>
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="img/blog/single_blog_2.jpg" alt="">
-                                
-                            </div>
-
-                            <div class="blog_details">
-                                
-                                <p>Orsang Resort, nestled by the Orsang River in Gujarat, India, offers a blend of thrilling adventure and serene nature experiences. Guests can indulge in adrenaline-pumping activities like zip lining, rock climbing, rappelling, and navigating rope courses high above the ground. Water enthusiasts can enjoy kayaking and white-water rafting on the Orsang River. Team-building exercises such as obstacle courses and trust falls foster camaraderie, while indoor activities like board games, table tennis, and carrom provide leisurely fun. Nature lovers can embark on guided walks to explore the lush surroundings and engage in bird watching, making Orsang Resort a versatile destination for adventure seekers and those seeking relaxation alike.</p>
-                                
-                            </div>
-                        </article>
-                        <a class="d-inline-block" href="facilities.php">
-                                    <h2>Activities at Orsang Resort</h2>
-                                </a>
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="img/blog/single_blog_3.jpg" alt="">
-                                
-                            </div>
-
-                            <div class="blog_details">
-                                
-                                <p>Orsang Resort, located in Gujarat, India, provides a serene and picturesque environment ideal for yoga enthusiasts. The resort offers daily yoga sessions that are conducted by experienced instructors, suitable for all levels from beginners to advanced practitioners. These sessions typically take place in tranquil, open-air pavilions overlooking the Orsang River, surrounded by lush greenery, which enhances the overall experience of connecting with nature. The yoga program at Orsang Resort includes a variety of practices such as Hatha yoga, Vinyasa flow, Pranayama (breathing exercises), and guided meditation sessions. These activities are designed to promote physical health, mental clarity, and emotional well-being. Special yoga retreats and workshops are also organized periodically, providing an immersive experience for those looking to deepen their practice. The holistic approach at Orsang Resort makes it an ideal destination for those seeking relaxation, rejuvenation, and a deeper connection with their inner selves.</p>
-
-                            </div>
-                        </article>
-
-                        
-
-                        
+                        </div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
-    </section>
-    <!--================Blog Area =================-->
+    </div>
 
     <?php include "footer.php"; ?>
-
-    <!-- form itself end-->
-    <form id="test-form" class="white-popup-block mfp-hide">
-        <div class="popup_box ">
-                <div class="popup_inner">
-                    <h3>Check Availability</h3>
-                    <form action="#">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <input id="datepicker" placeholder="Check in date">
-                            </div>
-                            <div class="col-xl-6">
-                                <input id="datepicker2" placeholder="Check out date">
-                            </div>
-                            <div class="col-xl-6">
-                                <select class="form-select wide" id="default-select" class="">
-                                    <option data-display="Adult">1</option>
-                                    <option value="1">2</option>
-                                    <option value="2">3</option>
-                                    <option value="3">4</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-6">
-                                <select class="form-select wide" id="default-select" class="">
-                                    <option data-display="Children">1</option>
-                                    <option value="1">2</option>
-                                    <option value="2">3</option>
-                                    <option value="3">4</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-12">
-                                <select class="form-select wide" id="default-select" class="">
-                                    <option data-display="Room type">Room type</option>
-                                    <option value="1">Laxaries Rooms</option>
-                                    <option value="2">Deluxe Room</option>
-                                    <option value="3">Signature Room</option>
-                                    <option value="4">Couple Room</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-12">
-                                <button type="submit" class="boxed-btn3">Check Availability</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-    </form>
-<!-- form itself end -->
-<?php include "script.php"; ?>
-
-
+    
+    <script>
+        document.querySelectorAll('.see-more').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const target = document.getElementById(targetId);
+                if (target.style.display === 'block') {
+                    target.style.display = '-webkit-box';
+                    this.textContent = 'See More';
+                } else {
+                    target.style.display = 'block';
+                    this.textContent = 'See Less';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

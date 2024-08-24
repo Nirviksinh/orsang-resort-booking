@@ -46,7 +46,7 @@
 
         .about_info {
             padding: 40px;
-            background: #f9f9f9;
+            background: white;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
@@ -57,7 +57,7 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
     <?php include "header.php";?>
-    <?php include "menu.php";?> 
+     
 
     <!-- header-start -->
 
@@ -125,7 +125,7 @@
                             
                         </div>
                         <p>Orsang Camp elucidates the true meaning of adventure and adrenaline rush by galvanizing its guests into taking a step up into the fear-free zone. Located in the enthralling village of Gamdi, on the magnificent bank of Orsang River, the Camp shelters a sprawling area of lush green 125 acres and is designed to offer a great blend of comfort, style and adventure seen never before.</p>
-                        <a href="https://r.search.yahoo.com/_ylt=Awrx.cRa2KlmK80SDCDnHgx.;_ylu=Y29sbwMEcG9zAzQEdnRpZAMEc2VjA3Ny/RV=2/RE=1722435803/RO=10/RU=https%3a%2f%2forsangcamp.com%2fstayorsang%2f/RK=2/RS=YFjrFKBv2OQnlmBG4zI7cTJgCE4-" class="line-button">Learn More</a>
+                        <a href="https://r.search.yahoo.com/_ylt=Awrx.PPGCLVmPpooq2jnHgx.;_ylu=Y29sbwMEcG9zAzEEdnRpZAMEc2VjA3Ny/RV=2/RE=1723169095/RO=10/RU=https%3a%2f%2forsangcamp.com%2f/RK=2/RS=M2kxa3Ev085H4jVNi.HOk54D7ik-" class="line-button">Learn More</a>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7">

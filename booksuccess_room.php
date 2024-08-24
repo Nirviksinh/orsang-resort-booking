@@ -1,14 +1,26 @@
 <?php
-include "connection.php";
+session_start();
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "resort_booking";
 
-// Retrieve booking ID from the URL
-$booking_id = $_GET['booking_id'];
+// Create connection
+$con = new mysqli($servername, $username, $password, $dbname);
 
-// Query to get booking details
-$query = "SELECT * FROM booking WHERE id='$booking_id'";
-$result = mysqli_query($con, $query);
+// Check connection
+if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+}
 
-if ($row = mysqli_fetch_assoc($result)) {
+// Check if user_id is set in the session
+$user_id = isset($_SESSION['user']) ? (int)$_SESSION['user']['u_id'] : 0;
+
+if ($user_id === 0) {
+    // Redirect to login page if user is not logged in
+    header("Location: login.php");
+    exit;
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -17,40 +29,58 @@ if ($row = mysqli_fetch_assoc($result)) {
     <?php include "head.php"; ?>
 </head>
 <body>
+    <!-- Back to Home Button -->
+    <div class="container mt-3">
+        <a href="index.php" class="btn btn-success">Back to Home</a>
+    </div>
+    
     <div class="container mt-5">
+        <?php
+        // Retrieve the room ID from the URL
+        $r_id = $_GET['r_id'];
+        
+        // Query to get room details
+        $query = "SELECT * FROM rooms WHERE r_id='$r_id'";
+        $result = mysqli_query($con, $query);
+        
+        if ($row = mysqli_fetch_assoc($result)) {
+        ?>
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card">
+                    <img src="<?php echo $row['image']; ?>" class="card-img-top" alt="Room image" style="height: 300px; object-fit: cover;">
                     <div class="card-body">
-                        <h3 class="card-title">Booking Confirmation</h3>
+                        <h5 class="card-title"><?php echo $row['r_type']; ?></h5>
                         <p class="card-text">
-                            <strong>Booking ID:</strong> <?php echo $row['id']; ?><br>
-                            <strong>User ID:</strong> <?php echo $row['u_id']; ?><br>
-                            <strong>Room ID:</strong> <?php echo $row['b_id']; ?><br>
-                            <strong>Check-in Date:</strong> <?php echo $row['checkin_date']; ?><br>
-                            <strong>Check-out Date:</strong> <?php echo $row['checkout_date']; ?><br>
-                            <strong>Payment Method:</strong> <?php echo $row['payment_method']; ?><br>
+                            <strong>Monthly Rate:</strong> <?php echo $row['r_rate']; ?><br>
+                            <strong>Capacity:</strong> <?php echo $row['capacity']; ?><br>
+                            <?php echo $row['description']; ?>
                         </p>
-                        <h4>Booking Ticket</h4>
-                        <p>
-                            <strong>Booking ID:</strong> <?php echo $row['id']; ?><br>
-                            <strong>Room ID:</strong> <?php echo $row['b_id']; ?><br>
-                            <strong>Check-in Date:</strong> <?php echo $row['checkin_date']; ?><br>
-                            <strong>Check-out Date:</strong> <?php echo $row['checkout_date']; ?><br>
-                        </p>
-                        <p>Thank you for your booking!</p>
-                        <a href="index.php" class="btn btn-success">Back to Home</a>
+                        
+                        <!-- Booking form -->
+                        <form action="booked_room.php" method="post">
+                            <input type="hidden" name="b_id" value="<?php echo $row['r_id']; ?>">
+                            <div class="form-group">
+                                <label for="checkin_date">Check-in Date:</label>
+                                <input type="date" class="form-control" name="checkin_date" id="checkin_date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout_date">Check-out Date:</label>
+                                <input type="date" class="form-control" name="checkout_date" id="checkout_date" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Book Now</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+        <?php
+        } else {
+            echo "<div class='alert alert-danger' role='alert'>Room details not found.</div>";
+        }
+        ?>
     </div>
+
+    <?php include "footer.php"; ?>
 </body>
 </html>
-<?php
-} else {
-    echo "<div class='alert alert-danger' role='alert'>Booking details not found.</div>";
-}
-
-mysqli_close($con);
-?>

@@ -76,6 +76,28 @@
             margin: 0;
             padding: 20px;
         }
+      
+        .custom-button {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 50px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .custom-button:hover {
+        background-color: #0056b3;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
     </style>
 </head>
 <body>
@@ -83,29 +105,35 @@
     
 
     <div class="bradcam_area breadcam_bg_2">
-        <h3>ALL FACILITIES</h3>
+        <h3>ALL REVIEWS</h3>
     </div>
-
+    <ul class="button">
+        <li>
+            <a class="nav-link custom-button" href="add_review.php">ADD REVIEWS</a>
+        </li>
+    </ul>
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="row">
                     <?php
-                    $q = "SELECT * FROM facilities";
+                    $q = "SELECT * FROM reviews";
                     $rs = mysqli_query($con, $q);
                     while ($row = mysqli_fetch_array($rs)) {
                     ?>
                     <div class="col-md-4 mb-4">
                         <div class="card">
-                            <img src="<?php echo $row['image']; ?>" class="card-img-top" alt="Facility image" style="height: 200px; object-fit: cover; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                            
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $row['f_name']; ?></h5>
-                                <p class="card-text" id="description-<?php echo $row['f_id']; ?>">
-                                    <?php echo $row['description']; ?>
+                                
+                                <p class="card-text" id="comment-<?php echo $row['r_id']; ?>">
+                                    <strong>Name:</strong> <?php echo $row['name']; ?><br>
+                                    <strong>Rating:</strong> <?php echo $row['rating']; ?><br>
+                                    <strong>Date:</strong> <?php echo $row['r_date']; ?><br>
+                                    <?php echo $row['comment']; ?>
                                 </p>
-                                <span class="see-more" data-target="description-<?php echo $row['f_id']; ?>">See More</span><br>
-                                <!-- Uncomment the following line if you want to add a button for more details or booking -->
-                                <!-- <a href="#" class="btn btn-primary">More Details</a> -->
+                                <span class="see-more" data-target="comment-<?php echo $row['r_id']; ?>">See More</span><br>
+                                
                             </div>
                         </div>
                     </div>
